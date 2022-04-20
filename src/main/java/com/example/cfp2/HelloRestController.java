@@ -34,9 +34,16 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/web")
+/**
+ * create a class name as HelloRestController
+ */
 public class HelloRestController {
 
-    //uc1
+    /**
+     * UC1 :-
+     * create a string type method name as message
+     * @return - hello from bridgelabz message
+     */
     @GetMapping("/message")
     public String message() {
         return "Hello From BridgeLabz";
