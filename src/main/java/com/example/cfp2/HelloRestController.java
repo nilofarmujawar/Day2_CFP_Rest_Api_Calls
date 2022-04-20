@@ -19,10 +19,7 @@ package com.example.cfp2;
  * import classes
  */
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 1) @RestController :-
@@ -43,6 +40,8 @@ import org.springframework.web.bind.annotation.RestController;
  *           It has the following optional elements: defaultValue - used as a fallback when the request parameter is not provided or has an empty value.
  *           name - name of the request parameter to bind to
  */
+
+
 @RestController
 @RequestMapping("/web")
 /**
@@ -70,4 +69,16 @@ public class HelloRestController {
     public String sayHello(@RequestParam String name) {
         return "Hello " + name + " From BridgeLabz";
     }
+
+    /**
+     * UC3:-
+     * create a method name as sayHelloParam
+     * @param name - put the name what u want
+     * @return - message
+     */
+    @GetMapping("/param/{name}")
+    public String sayHelloParam(@PathVariable String name) {
+        return "Hello " + name + " From BridgeLabz";
+    }
+
 }
