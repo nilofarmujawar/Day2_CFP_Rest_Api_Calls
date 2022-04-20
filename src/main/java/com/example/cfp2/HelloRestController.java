@@ -12,14 +12,28 @@ package com.example.cfp2;
  *        - Use CURL to demonstrate the REST API Call
  *        - curl localhost:8080/hello/query?name=Mark -w "\n"
  *
+ * UC3 :- Make REST Call to show Hello Mark from BridgeLabz
+ *        - Use GET Request Method and pass name as path variable
+ *        - Use CURL to demonstrate the REST API Call
+ *        - curl localhost:8080/hello/param/Mark -w"\n"
+ *
+ * UC4 :- Make REST Call to show Hello Mark Taylor from BridgeLabz
+ *        - Use POST Request Method and pass first name and last name in the Body
+ *        - Create User DTO Bean with firstName and lastName as attributes.
+ *        - Use CURL to demonstrate the REST API Call
+ *        - curl -X POST -H "Content-Type: application/json" -d
+ *         '{"firstName": ”Mark","lastName": ”Taylor"}'
+ *          "http://localhost:8080/hello/post" -w "\n"
  *
  */
 
 /**
  * import classes
  */
-
+import org.apache.catalina.User;
 import org.springframework.web.bind.annotation.*;
+
+
 
 /**
  * 1) @RestController :-
@@ -39,6 +53,11 @@ import org.springframework.web.bind.annotation.*;
  *           @RequestParam is a Spring annotation used to bind a web request parameter to a method parameter.
  *           It has the following optional elements: defaultValue - used as a fallback when the request parameter is not provided or has an empty value.
  *           name - name of the request parameter to bind to
+ *
+ * 5) @PostMapping :-
+ *           @PostMapping annotation maps HTTP POST requests onto specific handler methods.
+ *           It is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod. POST)
+ *
  */
 
 
@@ -79,6 +98,18 @@ public class HelloRestController {
     @GetMapping("/param/{name}")
     public String sayHelloParam(@PathVariable String name) {
         return "Hello " + name + " From BridgeLabz";
+    }
+
+
+    /**
+     * UC4:-
+     * create a method name as userData
+     * @param user - firstname,lastname
+     * @return - message
+     */
+    @PostMapping("/post")
+    public String userData(@RequestBody User user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
     }
 
 }
