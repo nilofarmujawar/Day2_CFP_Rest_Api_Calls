@@ -1,9 +1,21 @@
 package com.example.cfp2;
 
+/**
+ * create a class name as user
+ * creating class and applying getter and setter
+ */
 public class User {
+
+    /**
+     * variables
+     */
     private String firstName;
     private String lastName;
 
+    /**
+     * using gette and setter
+     *
+     */
     public String getFirstName() {
         return firstName;
     }

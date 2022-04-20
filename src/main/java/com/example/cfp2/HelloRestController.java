@@ -25,6 +25,11 @@ package com.example.cfp2;
  *         '{"firstName": ”Mark","lastName": ”Taylor"}'
  *          "http://localhost:8080/hello/post" -w "\n"
  *
+ * UC5 :- Make REST Call to show Hello Mark Taylor from BridgeLabz
+ *        - Use PUT Request Method and pass first name as Path Variable and last name as Query Parameter
+ *        - Use CURL to demonstrate the REST API Call
+ *        - curl -X PUT localhost:8080/hello/put/Mark/?lastName=Taylor -w "\n"
+ *
  */
 
 /**
@@ -57,6 +62,11 @@ import org.springframework.web.bind.annotation.*;
  * 5) @PostMapping :-
  *           @PostMapping annotation maps HTTP POST requests onto specific handler methods.
  *           It is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod. POST)
+ *
+ * 6) @PathVariable :-
+ *           @PathVariable is a Spring annotation which indicates that a method parameter should be bound to a URI template variable. It has the following optional elements: name - name of the path variable to bind to.
+ *           required - tells whether the path variable is required.
+ *
  *
  */
 
@@ -110,6 +120,18 @@ public class HelloRestController {
     @PostMapping("/post")
     public String userData(@RequestBody User user) {
         return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
+    }
+
+    /**
+     * UC5 :-
+     * create a method name as sayHello
+     * @param fName- user first name
+     * @param lName- user last name
+     * @return- message
+     */
+    @PutMapping("/put/{fName}")
+    public String sayHello(@PathVariable String fName, @RequestParam String lName) {
+        return "Hello " + fName + " " + lName + " from BridgeLabz..!";
     }
 
 }

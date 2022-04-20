@@ -24,6 +24,7 @@ public class HelloRestControllerApplication {
 	 * @param args - no arguments ,its default
 	 */
 	public static void main(String[] args) {
+		System.out.println("Welcome to my first program");
 		SpringApplication.run(HelloRestControllerApplication.class, args);
 	}
 
