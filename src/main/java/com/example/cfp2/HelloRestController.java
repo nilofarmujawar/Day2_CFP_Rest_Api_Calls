@@ -11,9 +11,15 @@ package com.example.cfp2;
  *        - Use GET Request Method and pass name as query parameter
  *        - Use CURL to demonstrate the REST API Call
  *        - curl localhost:8080/hello/query?name=Mark -w "\n"
+ *        
+ * UC3 :- Make REST Call to show Hello Mark from BridgeLabz
+ *        - Use GET Request Method and pass name as path variable
+ *        - Use CURL to demonstrate the REST API Call
+ *        - curl localhost:8080/hello/param/Mark -w"\n"
  *
  *
  */
+
 
 /**
  * import classes
